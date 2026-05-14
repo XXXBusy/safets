@@ -8,6 +8,11 @@
     "safets": "./bin/safets.js"
   },
   "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "npm run test:smoke",
+    "test:smoke": "node bin/safets.js doctor",
+    "pack:check": "node scripts/check-pack.mjs",
+    "ci:check": "npm run typecheck && npm test && npm run pack:check",
     "doctor": "ts-node --esm src/index.ts doctor",
     "fix": "ts-node --esm src/index.ts fix",
     "debt": "ts-node --esm src/index.ts debt",
